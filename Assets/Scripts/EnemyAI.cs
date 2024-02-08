@@ -50,8 +50,10 @@ public class EnemyAI : MonoBehaviour
                     lastFireTime = Time.time;
                 }
             }
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (direction.x > 0)
+                transform.localScale = new Vector3(-1, 1, 1); // Flip left
+            else if (direction.x < 0)
+                transform.localScale = new Vector3(1, 1, 1); // Flip right
         }
         else
         {
