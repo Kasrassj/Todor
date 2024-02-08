@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 12f; //16f = 4 tiles
+    private float jumpingPower = 14f; //16f = 4 tiles
     private bool isFacingRight = true;
 
     private bool isWallSliding;
