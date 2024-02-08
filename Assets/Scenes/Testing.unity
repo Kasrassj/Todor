@@ -344,11 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
---- !u!1 &782029548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7463889755321678873, guid: 8dbfb9deb35ec7d41baeeb4ea268bd15, type: 3}
-  m_PrefabInstance: {fileID: 7463889753639820302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &947932090
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,36 +552,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7463889755321678866, guid: 8dbfb9deb35ec7d41baeeb4ea268bd15, type: 3}
   m_PrefabInstance: {fileID: 7463889753639820302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1690378273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782029548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ba38421e46b8c4bb617f72faaac646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
---- !u!114 &1690378274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782029548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4076c09bd551a1042aa2e125eaf391ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 2
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &1806487593
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +783,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424985576, guid: 8dbfb9deb35ec7d41baeeb4ea268bd15, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7463889755321678866, guid: 8dbfb9deb35ec7d41baeeb4ea268bd15, type: 3}
       propertyPath: m_RootOrder
       value: 2
