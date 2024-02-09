@@ -9,6 +9,15 @@ public class Damageable : MonoBehaviour
     public GameObject healthPotionPrefab; // Reference to the health potion prefab
     public float potionSpawnChance = 1f;
 
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
     void Start()
     {
         // Initialize current health to max health when the object is spawned
