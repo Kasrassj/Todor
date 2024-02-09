@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class Boss : MonoBehaviour
     public float followDistance = 5f; // Distance at which the enemy starts following the player
     public float shootDistance = 2f; // Distance at which the enemy starts shooting fireballs
     public Transform spawnArea;
+    public int currentSceneIndex;
+
+    public Damageable hp;
+
+   
+    // Calculate the next scene index
+   
 
     public float fireballSpeed = 5f;
     public GameObject fireballPrefab; // Reference to the fireball prefab
@@ -24,10 +32,15 @@ public class Boss : MonoBehaviour
         //animator = GetComponent<Animator>();
         lastFireTime = -fireballCooldown;
         transform.localScale *= sizeMultiplier;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()
     {
+        if (hp.currentHealth == 0)
+        {
+            hp.endGame();
+        }
         // Check if player is within follow distance
         if (Vector2.Distance(transform.position, player.position) <= followDistance)
         {
@@ -53,15 +66,17 @@ public class Boss : MonoBehaviour
             }
             // If you change the size of the enemy change these vectors as well
             if (direction.x > 0)
-                transform.localScale = new Vector3(1f, 1f, 1f); // Flip left
+                transform.localScale = new Vector3(9f, 9f, 9f); // Flip left
             else if (direction.x < 0)
-                transform.localScale = new Vector3(-1f, 1f, 1f); // Flip right
+                transform.localScale = new Vector3(-9f, 9f, 9f); // Flip right
         }
         else
         {
             isFollowing = false;
             // animator.SetBool("IsWalking", false);
         }
+
+        
     }
 
     void ShootFireball()

@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Level_1.unity
+    guid: 618bc45725239ab4f8ac77e9a554170a
   - enabled: 1
-    path: Assets/Scenes/Testing.unity
-    guid: f068451774270214791da075cfc77529
+    path: Assets/Scenes/Level_2.unity
+    guid: 9434ab68ef9ef334ca48762c7a173459
   - enabled: 1
-    path: Assets/Scenes/Testing Kasra.unity
-    guid: 94fa63af09ddc2a4fae33531d150ddd8
+    path: Assets/Scenes/Level_3.unity
+    guid: 846ae7988655ddb40b5f6683ad5033c7
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 8285738c168f1e244b2962b9ef3ccc92
   m_configObjects: {}

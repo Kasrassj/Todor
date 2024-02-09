@@ -126,6 +126,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2542943936136822861, guid: 9e940905d23f8de40bc0dbbc094e43fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9e940905d23f8de40bc0dbbc094e43fa, type: 3}
+--- !u!4 &4478777719526301249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2542943934910102718, guid: 9e940905d23f8de40bc0dbbc094e43fa, type: 3}
+  m_PrefabInstance: {fileID: 2120503359705211647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4478777720484602544 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2542943936136822863, guid: 9e940905d23f8de40bc0dbbc094e43fa, type: 3}
@@ -143,11 +148,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29334d37948b4d04d9d24ee36f56a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7463889755321678866, guid: 8dbfb9deb35ec7d41baeeb4ea268bd15, type: 3}
   followDistance: 5
   shootDistance: 2
-  spawnArea: {fileID: 0}
+  spawnArea: {fileID: 4478777719526301249}
+  hp: {fileID: 4478777720484602547}
   fireballSpeed: 5
-  fireballPrefab: {fileID: 0}
+  fireballPrefab: {fileID: 5304210330043658767, guid: 654c1aa489b8e4b4ab493b2934bff9c9, type: 3}
   fireballCooldown: 2
   sizeMultiplier: 2
+--- !u!114 &4478777720484602547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2542943936136822860, guid: 9e940905d23f8de40bc0dbbc094e43fa, type: 3}
+  m_PrefabInstance: {fileID: 2120503359705211647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478777720484602544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ba38421e46b8c4bb617f72faaac646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

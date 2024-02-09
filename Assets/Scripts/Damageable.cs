@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Damageable : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Damageable : MonoBehaviour
     public int currentHealth; // Current health of the object
     public GameObject healthPotionPrefab; // Reference to the health potion prefab
     public float potionSpawnChance = 1f;
+    public int currentSceneIndex;
 
     public float GetCurrentHealth()
     {
@@ -22,6 +24,7 @@ public class Damageable : MonoBehaviour
     {
         // Initialize current health to max health when the object is spawned
         currentHealth = maxHealth;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void TakeDamage(int damageAmount, bool isBlocking)
@@ -40,17 +43,17 @@ public class Damageable : MonoBehaviour
         // Check if the object's health has dropped to zero or below
         if (currentHealth <= 0)
         {
-            {
-                // Check if a health potion should spawn
-                if (Random.value < potionSpawnChance)
+            
+            // Check if a health potion should spawn
+            if (Random.value < potionSpawnChance)
                 {
                     // Spawn a health potion at the enemy's position
                     Instantiate(healthPotionPrefab, transform.position, Quaternion.identity);
                 }
 
-                // Destroy the enemy object
-                Destroy(gameObject);
-            }
+            // Destroy the enemy object
+            Destroy(gameObject);
+
         }
     }
     public void Heal(int healAmount)
@@ -60,5 +63,10 @@ public class Damageable : MonoBehaviour
 
         // Ensure current health does not exceed max health
         currentHealth = Mathf.Min(currentHealth, maxHealth);
+    }
+
+    public void endGame()
+    {
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }
