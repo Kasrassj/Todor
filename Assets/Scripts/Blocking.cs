@@ -5,36 +5,62 @@ using UnityEngine;
 public class Blocking : MonoBehaviour
 {
     public float blockPushForce = 5f; // Force applied to the player and enemy when blocking
-    public float blockDuration = 0.7f; // Duration of the block in seconds
+    public float blockHoldDuration = 0.5f; // Minimum duration of block hold in seconds
+    public float blockCooldown = 1f; // Cooldown period before player can block again after releasing the block button
     private bool isBlocking = false; // Flag to track if the player is currently blocking
+    private bool canBlock = true; // Flag to track if the player can currently block
 
     void Update()
     {
         // Check if the player is currently blocking
         if (isBlocking)
         {
-            // Reduce the block duration
-            blockDuration -= Time.deltaTime;
+            // Reduce the block hold duration
+            blockHoldDuration -= Time.deltaTime;
 
-            // Check if block duration has expired
-            if (blockDuration <= 0)
+            // Check if the block hold duration has expired
+            if (blockHoldDuration <= 0)
             {
                 // Stop blocking
-                isBlocking = false;
+                StopBlocking();
             }
         }
 
         // Check if the player can block
-        if (!isBlocking && Input.GetButtonDown("Fire2")) // Assuming "Fire2" is the block button (right mouse button)
+        if (canBlock && Input.GetButton("Fire2")) // Assuming "Fire2" is the block button (right mouse button)
         {
             // Start blocking
-            isBlocking = true;
-            blockDuration = 0.5f; // Reset block duration
-
-            // Apply force to push the player back
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(-transform.right.x * blockPushForce, rb.velocity.y);
+            StartBlocking();
         }
+
+        // Check if the player releases the block button
+        if (!Input.GetButton("Fire2"))
+        {
+            // Stop blocking
+            StopBlocking();
+        }
+    }
+
+    void StartBlocking()
+    {
+        isBlocking = true;
+        canBlock = false; // Disable blocking until cooldown expires
+        blockHoldDuration = 0.5f; // Reset block hold duration
+
+        // Apply force to push the player back
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(-transform.right.x * blockPushForce, rb.velocity.y);
+    }
+
+    void StopBlocking()
+    {
+        isBlocking = false;
+        Invoke("ResetBlockCooldown", blockCooldown); // Start the block cooldown
+    }
+
+    void ResetBlockCooldown()
+    {
+        canBlock = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -53,5 +79,10 @@ public class Blocking : MonoBehaviour
             playerRb.velocity = pushDirection * blockPushForce;
             enemyRb.velocity = -pushDirection * blockPushForce;
         }
+    }
+
+    public bool IsBlocking()
+    {
+        return isBlocking;
     }
 }

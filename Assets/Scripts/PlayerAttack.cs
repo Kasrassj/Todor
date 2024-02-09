@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             if (enemy != null)
             {
                 // Deal damage to the enemy (you can adjust the damage amount as needed)
-                enemy.TakeDamage(10);
+                enemy.TakeDamage(10,false);
                 Debug.Log(enemy.currentHealth.ToString());
             }
         }

@@ -13,8 +13,16 @@ public class Damageable : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, bool isBlocking)
     {
+        // Check if the player is blocking
+        if (isBlocking)
+        {
+            // Player is blocking, so don't apply any damage
+            currentHealth = currentHealth;
+            return;
+        }
+
         // Reduce current health by the damage amount
         currentHealth -= damageAmount;
 

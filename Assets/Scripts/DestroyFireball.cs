@@ -13,8 +13,8 @@ public class DestroyFireball : MonoBehaviour
         if (target != null)
         {
             // Deal damage to the target
-            target.TakeDamage(damageAmount);
-           // Debug.Log(target.currentHealth.ToString());
+            target.TakeDamage(damageAmount, false);
+            Debug.Log(target.currentHealth.ToString());
             Destroy(gameObject);
         }
 
