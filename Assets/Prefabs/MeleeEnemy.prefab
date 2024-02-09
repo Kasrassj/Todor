@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 3462986399332374292}
   - component: {fileID: 1053426601521308914}
   m_Layer: 9
-  m_Name: Square
+  m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -36,15 +36,15 @@ public class Player : MonoBehaviour
     public Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
-    [SerializeField] private Animator animator;
-    [SerializeField] private Animation animation;
+    //[SerializeField] private Animator animator;
+    //[SerializeField] private Animation animation;
 
     public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Default;
-        animator = GetComponent<Animator>();
-        animation = new Animation();
+        //animator = GetComponent<Animator>();
+        //animation = new Animation();
     }
 
     private void Update()
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
             if (rb.velocity.x > 0f)
             {
-                animation.Play("Run");
+                
             }
         }
     }
