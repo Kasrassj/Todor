@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class EnemyAI : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     public Transform player; // Reference to the player's transform
     public float followDistance = 5f; // Distance at which the enemy starts following the player
@@ -14,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject fireballPrefab; // Reference to the fireball prefab
     public float fireballCooldown = 2f;
     private float lastFireTime;
+    public float sizeMultiplier = 2.0f;
 
 
     private Animator animator;
@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     {
         //animator = GetComponent<Animator>();
         lastFireTime = -fireballCooldown;
+        transform.localScale *= sizeMultiplier;
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class EnemyAI : MonoBehaviour
         if (Vector2.Distance(transform.position, player.position) <= followDistance)
         {
             isFollowing = true;
-           // animator.SetBool("IsWalking", true);
+            // animator.SetBool("IsWalking", true);
 
             // Move towards the player
             transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * 2f);
@@ -54,12 +55,12 @@ public class EnemyAI : MonoBehaviour
             if (direction.x > 0)
                 transform.localScale = new Vector3(1f, 1f, 1f); // Flip left
             else if (direction.x < 0)
-                transform.localScale = new Vector3(-1f , 1f, 1f); // Flip right
+                transform.localScale = new Vector3(-1f, 1f, 1f); // Flip right
         }
         else
         {
             isFollowing = false;
-           // animator.SetBool("IsWalking", false);
+            // animator.SetBool("IsWalking", false);
         }
     }
 
