@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Animations;
 
 public class Player : MonoBehaviour
 {
@@ -36,10 +36,15 @@ public class Player : MonoBehaviour
     public Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animation animation;
+
     public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Default;
+        animator = GetComponent<Animator>();
+        animation = new Animation();
     }
 
     private void Update()
@@ -92,6 +97,10 @@ public class Player : MonoBehaviour
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if (rb.velocity.x > 0f)
+            {
+                animation.Play("Run");
+            }
         }
     }
 

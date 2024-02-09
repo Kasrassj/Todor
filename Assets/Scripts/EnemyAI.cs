@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
             // Move towards the player
             transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * 2f);
             Vector2 direction = (player.position - transform.position).normalized;
+            
 
             // Check if player is within shooting distance
             if (Vector2.Distance(transform.position, player.position) <= shootDistance && isFollowing == true)
