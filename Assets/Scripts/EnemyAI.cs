@@ -50,10 +50,11 @@ public class EnemyAI : MonoBehaviour
                     lastFireTime = Time.time;
                 }
             }
+            // If you change the size of the enemy change these vectors as well
             if (direction.x > 0)
-                transform.localScale = new Vector3(-1, 1, 1); // Flip left
+                transform.localScale = new Vector3(-1f, 1f, 1f); // Flip left
             else if (direction.x < 0)
-                transform.localScale = new Vector3(1, 1, 1); // Flip right
+                transform.localScale = new Vector3(1f, 1f, 1f); // Flip right
         }
         else
         {

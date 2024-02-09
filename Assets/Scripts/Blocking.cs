@@ -66,7 +66,7 @@ public class Blocking : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the player is currently blocking and the collision is with an enemy
-        if (isBlocking && other.CompareTag("Enemy"))
+        if (isBlocking && other.CompareTag("Fire"))
         {
             // Push both the player and the enemy back
             Rigidbody2D playerRb = GetComponent<Rigidbody2D>();
@@ -78,6 +78,7 @@ public class Blocking : MonoBehaviour
             // Apply force to push the player and the enemy
             playerRb.velocity = pushDirection * blockPushForce;
             enemyRb.velocity = -pushDirection * blockPushForce;
+            Debug.Log("Blocking!");
         }
     }
 
