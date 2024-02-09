@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4076c09bd551a1042aa2e125eaf391ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  attackRange: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
